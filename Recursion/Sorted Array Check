@@ -1,0 +1,8 @@
+def isSorted(arr,n):
+    if n==0 or n==1:
+        return True
+    return arr[0]<arr[1] and isSorted(arr[1:],n-1)
+
+if __name__=="__main__":
+    arr=list(map(int,input().split()))
+    print(isSorted(arr,len(arr)))
