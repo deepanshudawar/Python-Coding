@@ -1,0 +1,21 @@
+def pow(a,n):
+    if(n==1):
+        return a
+    return a*pow(a,n-1)
+    
+def fastpow(a,n):
+    if n==1:
+        return a
+    
+    sol=fastpow(a,n//2)
+    solsq=sol*sol
+    
+    if n % 2==1:
+        return a*solsq
+    return solsq
+
+if __name__=="__main__":
+    a=int(input())
+    n=int(input())
+    print(pow(a,n))
+    print(fastpow(a,n))
