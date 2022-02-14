@@ -1,0 +1,10 @@
+# code to find number of binary strings of length n which dont have consecutive 1s
+def helper(n):
+    if n==0:
+        return 1
+    if n==1:
+        return 2
+    return helper(n-1)+helper(n-2)
+
+if __name__=="__main__":
+    print(helper(7))
