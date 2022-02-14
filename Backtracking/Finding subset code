@@ -1,0 +1,17 @@
+#Given a set represented as a string, write a recursive code to print all subsets of it. The subsets can be printed in any order.
+
+
+def helper(s,o,i,n):
+    if i==n:
+        print(o)
+        return 
+
+    o=o+s[i]
+    helper(s,o,i+1,n)
+    o=o[:-1]
+    helper(s,o,i+1,n)
+
+if __name__=="__main__":
+    s=input()
+    o=""
+    helper(s,o,0,len(s))
