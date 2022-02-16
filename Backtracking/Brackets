@@ -1,0 +1,16 @@
+#Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+#LeetCode problem 22
+
+
+def helper(n,opencount,closecount,i,current):
+            if i==2*n:
+                print(current)
+                return
+            if opencount<n:
+                helper(n,opencount+1,closecount,i+1,current+"(")
+            if closecount<opencount:
+                helper(n,opencount,closecount+1,i+1,current+")")
+                
+if __name__=="__main__":
+    n=int(input())
+    helper(n,0,0,0,"")
