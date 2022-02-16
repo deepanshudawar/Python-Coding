@@ -1,0 +1,20 @@
+#Write a program to print all permutations of a given string using backtracking
+def swap(s,l,r):
+    temp=s[l]
+    s[l]=s[r]
+    s[r]=temp
+
+
+def helper(s,l,r):
+    if(l==r):
+        print(*s)
+    
+    for i in range(l,r):
+        swap(s,i,l)
+        helper(s,l+1,r)
+        swap(s,i,l)
+    
+
+if __name__=="__main__":
+   x=input()
+   helper(list(x),0,len(x))
