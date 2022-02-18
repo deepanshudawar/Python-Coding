@@ -1,0 +1,21 @@
+#Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s
+#LeetCode 131
+
+res=[]
+part=[]
+def isPal(s):
+    return s==s[::-1]
+def helper(i,s):
+    if i==len(s):
+        res.append(part.copy())
+    for j in range(i,len(s)):
+        if(isPal(s[i:j+1])):
+            part.append(s[i:j+1])
+            helper(i+1,s)
+            part.pop()
+        
+
+if __name__=="__main__":
+    s=input()
+    helper(0,s)
+    print(res)
